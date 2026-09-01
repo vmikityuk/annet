@@ -244,9 +244,7 @@ class DefaultRulebookProvider(RulebookProvider):
         except RULEBOOK_READ_EXCEPTIONS as err:
             fallback_path = f"{self.DEFAULT_RULEBOOK_MODULE}.{name}"
             if fallback_path == rulebook_path:
-                raise FileNotFoundError(
-                    f'Unable to find rulebook "{name}" in "{module}" module'
-                ) from err
+                raise FileNotFoundError(f'Unable to find rulebook "{name}" in "{module}" module') from err
             return self._get_raw_rulebook_text(fallback_path, extension)
 
     @staticmethod
